@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Productivity App</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="bg-shapes">
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+</div>
+
+<div class="app">
+
+    <button id="themeToggle">🌙</button>
+
+<h1>Smart To-Do</h1>
+
+<div class="input-section">
+
+<input type="text" id="taskInput" placeholder="Add new task">
+
+<select id="priority">
+
+<option value="high">High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+
+</select>
+
+<button id="addBtn">
+<i class="fa fa-plus"></i>
+</button>
+
+</div>
+
+<div class="filters">
+
+<button onclick="filterTasks('all')">All</button>
+<button onclick="filterTasks('pending')">Pending</button>
+<button onclick="filterTasks('completed')">Completed</button>
+
+</div>
+
+<p id="taskCount"></p>
+
+<ul id="taskList"></ul>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
