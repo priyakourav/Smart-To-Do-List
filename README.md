@@ -1,11 +1,10 @@
-# Smart To-Do List (JavaScript Project)
+# Smart To-Do List 
 
 A modern and interactive **To-Do List Web App** built using **HTML, CSS, and JavaScript**.
 This project helps users manage daily tasks with a clean UI, priority levels, filters, and local storage support.
 
 The goal of this project was to practice **JavaScript DOM manipulation, local storage, and UI design** while building a practical productivity tool.
 
----
 
 ## Live Features
 
@@ -20,7 +19,6 @@ The goal of this project was to practice **JavaScript DOM manipulation, local st
 * Smooth animations and hover effects
 * Tasks saved using **Local Storage** (data remains after refresh)
 
----
 
 ## Tech Stack
 
@@ -30,8 +28,6 @@ The goal of this project was to practice **JavaScript DOM manipulation, local st
 
 No frameworks or libraries were used.
 
----
-
 ## UI Highlights
 
 * Glassmorphism style To-Do container
@@ -39,18 +35,15 @@ No frameworks or libraries were used.
 * Smooth hover and task animations
 * Clean modern layout
 
----
 
 ## Project Structure
 
-```
 todo-project
 │
 ├── index.html
 ├── style.css
 ├── script.js
 └── README.md
-```
 
 
 ## Learning Outcomes
@@ -64,6 +57,5 @@ While building this project, I practiced:
 * Organizing frontend project structure
 * Creating interactive web applications without frameworks
 
----
 
 
