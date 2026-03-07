@@ -70,3 +70,7 @@ While building this project, I practiced:
 ![App Screenshot](images/screenshot2.png)
 ![App Screenshot](images/screenshot3.png)
 
+## Live Demo Link 
+
+https://priyakourav.github.io/Smart-To-Do-List/
+
