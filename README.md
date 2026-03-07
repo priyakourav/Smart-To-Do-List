@@ -57,5 +57,17 @@ While building this project, I practiced:
 * Organizing frontend project structure
 * Creating interactive web applications without frameworks
 
+## Future Improvements
+
+* Add task editing feature
+* Add due dates for tasks
+* Add search functionality
+* Add mobile optimization
+
+## Preview
+
+![App Screenshot](images/Screenshot(427).png)
+![App Screenshot](images/Screenshot(428).png)
+![App Screenshot](images/Screenshot(429).png)
 
 

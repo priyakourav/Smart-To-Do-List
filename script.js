@@ -1,26 +1,33 @@
+// ===== GET ELEMENTS =====
+
 const input = document.getElementById("taskInput")
 const addBtn = document.getElementById("addBtn")
 const list = document.getElementById("taskList")
 const priority = document.getElementById("priority")
 const taskCount = document.getElementById("taskCount")
+const toggleBtn = document.getElementById("themeToggle")
+
+// ===== DATA =====
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || []
 let filter = "all"
 
+// ===== SAVE TASKS =====
+
 function save(){
-
 localStorage.setItem("tasks", JSON.stringify(tasks))
-
 }
+
+// ===== RENDER TASKS =====
 
 function render(){
 
-list.innerHTML=""
+list.innerHTML = ""
 
-let filtered = tasks.filter(task=>{
+let filtered = tasks.filter(task => {
 
-if(filter==="pending") return !task.completed
-if(filter==="completed") return task.completed
+if(filter === "pending") return !task.completed
+if(filter === "completed") return task.completed
 
 return true
 
@@ -28,23 +35,31 @@ return true
 
 filtered.forEach((task,index)=>{
 
-const li=document.createElement("li")
+const li = document.createElement("li")
 
+// add priority class
 li.classList.add(task.priority)
 
-if(task.completed) li.classList.add("completed")
+// completed style
+if(task.completed){
+li.classList.add("completed")
+}
 
-li.innerHTML=`
+// task layout
+li.innerHTML = `
 
-<span onclick="toggle(${index})">${task.text}</span>
+<button class="complete-btn" onclick="toggle(${index})">✔</button>
 
-<i class="fa fa-trash delete"
-onclick="removeTask(${index})"></i>
+<span>${task.text}</span>
+
+<i class="fa fa-trash delete" onclick="removeTask(${index})"></i>
 
 `
 
-list.appendChild(li)
+// enable drag
 li.setAttribute("draggable", true)
+
+list.appendChild(li)
 
 })
 
@@ -52,35 +67,39 @@ updateCount()
 
 }
 
+// ===== ADD TASK =====
+
 function addTask(){
 
-let text=input.value.trim()
+let text = input.value.trim()
 
-if(text==="") return
+if(text === "") return
 
 tasks.push({
-
-text:text,
-priority:priority.value,
-completed:false
-
+text: text,
+priority: priority.value,
+completed: false
 })
 
-input.value=""
+input.value = ""
 
 save()
 render()
 
 }
+
+// ===== TOGGLE COMPLETE =====
 
 function toggle(index){
 
-tasks[index].completed=!tasks[index].completed
+tasks[index].completed = !tasks[index].completed
 
 save()
 render()
 
 }
+
+// ===== REMOVE TASK =====
 
 function removeTask(index){
 
@@ -91,27 +110,27 @@ render()
 
 }
 
+// ===== FILTER TASKS =====
+
 function filterTasks(type){
 
-filter=type
+filter = type
 
 render()
 
 }
+
+// ===== TASK COUNTER =====
 
 function updateCount(){
 
-let remaining=tasks.filter(t=>!t.completed).length
+let remaining = tasks.filter(task => !task.completed).length
 
-taskCount.textContent="Tasks Left: "+remaining
+taskCount.textContent = "Tasks Left: " + remaining
 
 }
 
-addBtn.addEventListener("click",addTask)
-
-render()
-
-const toggleBtn = document.getElementById("themeToggle")
+// ===== DARK MODE =====
 
 toggleBtn.addEventListener("click",()=>{
 
@@ -119,13 +138,23 @@ document.body.classList.toggle("dark")
 
 })
 
-let draggedItem=null
+// ===== ADD TASK BUTTON =====
+
+addBtn.addEventListener("click", addTask)
+
+// ===== INITIAL RENDER =====
+
+render()
+
+// ===== DRAG & DROP =====
+
+let draggedItem = null
 
 document.addEventListener("dragstart",(e)=>{
 
-if(e.target.tagName==="LI"){
+if(e.target.tagName === "LI"){
 
-draggedItem=e.target
+draggedItem = e.target
 e.target.classList.add("dragging")
 
 }
@@ -134,7 +163,7 @@ e.target.classList.add("dragging")
 
 document.addEventListener("dragend",(e)=>{
 
-if(e.target.tagName==="LI"){
+if(e.target.tagName === "LI"){
 
 e.target.classList.remove("dragging")
 
@@ -160,26 +189,24 @@ list.insertBefore(draggedItem, afterElement)
 
 })
 
+// ===== HELPER FUNCTION =====
+
 function getDragAfterElement(container,y){
 
-const elements=[...container.querySelectorAll("li:not(.dragging)")]
+const elements = [...container.querySelectorAll("li:not(.dragging)")]
 
 return elements.reduce((closest,child)=>{
 
-const box=child.getBoundingClientRect()
+const box = child.getBoundingClientRect()
 
-const offset=y-box.top-box.height/2
+const offset = y - box.top - box.height / 2
 
-if(offset<0 && offset>closest.offset){
-
-return {offset:offset, element:child}
-
+if(offset < 0 && offset > closest.offset){
+return {offset: offset, element: child}
 }else{
-
 return closest
-
 }
 
-},{offset:Number.NEGATIVE_INFINITY}).element
+},{offset: Number.NEGATIVE_INFINITY}).element
 
 }
