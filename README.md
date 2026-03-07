@@ -66,8 +66,7 @@ While building this project, I practiced:
 
 ## Preview
 
-![App Screenshot](images/Screenshot(427).png)
-![App Screenshot](images/Screenshot(428).png)
-![App Screenshot](images/Screenshot(429).png)
-
+![App Screenshot](images/screenshot1.png)
+![App Screenshot](images/screenshot2.png)
+![App Screenshot](images/screenshot3.png)
 
