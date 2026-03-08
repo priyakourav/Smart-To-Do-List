@@ -1,4 +1,4 @@
-// ===== GET ELEMENTS =====
+//GET ELEMENTS
 
 const input = document.getElementById("taskInput")
 const addBtn = document.getElementById("addBtn")
@@ -7,18 +7,18 @@ const priority = document.getElementById("priority")
 const taskCount = document.getElementById("taskCount")
 const toggleBtn = document.getElementById("themeToggle")
 
-// ===== DATA =====
+//DATA 
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || []
 let filter = "all"
 
-// ===== SAVE TASKS =====
+//SAVE TASKS 
 
 function save(){
 localStorage.setItem("tasks", JSON.stringify(tasks))
 }
 
-// ===== RENDER TASKS =====
+//RENDER TASKS
 
 function render(){
 
@@ -88,7 +88,7 @@ render()
 
 }
 
-// ===== TOGGLE COMPLETE =====
+//TOGGLE COMPLETE
 
 function toggle(index){
 
@@ -99,7 +99,7 @@ render()
 
 }
 
-// ===== REMOVE TASK =====
+//REMOVE TASK
 
 function removeTask(index){
 
@@ -110,7 +110,7 @@ render()
 
 }
 
-// ===== FILTER TASKS =====
+//FILTER TASKS 
 
 function filterTasks(type){
 
@@ -120,7 +120,7 @@ render()
 
 }
 
-// ===== TASK COUNTER =====
+//TASK COUNTER 
 
 function updateCount(){
 
@@ -130,7 +130,7 @@ taskCount.textContent = "Tasks Left: " + remaining
 
 }
 
-// ===== DARK MODE =====
+//DARK MODE
 
 toggleBtn.addEventListener("click",()=>{
 
@@ -138,15 +138,15 @@ document.body.classList.toggle("dark")
 
 })
 
-// ===== ADD TASK BUTTON =====
+//ADD TASK BUTTON
 
 addBtn.addEventListener("click", addTask)
 
-// ===== INITIAL RENDER =====
+//INITIAL RENDER 
 
 render()
 
-// ===== DRAG & DROP =====
+//DRAG & DROP 
 
 let draggedItem = null
 
@@ -189,7 +189,7 @@ list.insertBefore(draggedItem, afterElement)
 
 })
 
-// ===== HELPER FUNCTION =====
+//HELPER FUNCTION 
 
 function getDragAfterElement(container,y){
 
